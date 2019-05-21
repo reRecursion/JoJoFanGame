@@ -4,34 +4,43 @@ var imageNormal = document.getElementById('image-normal');
 var imageMuda = document.getElementById('image-muda');
 
 var punching = document.getElementById("video-punching");
+var overlay = document.getElementById("overlay")
 
 var clicks = 0;
+var isVidRunning = 0
 
-function toggleImage(down) {
-    imageNormal.style.display = down ? 'none' : 'block';
-    imageMuda.style.display = down ? 'block' : 'none';
+
+function audio(){
+    
 }
 
-function toggleVideo(){
-    punching.play();
-    imageNormal.style.display = 'none';
-    imageMuda.style.display = 'none';
+function toggleImage(down) {
+    if(isVidRunning == 0){
+        imageNormal.style.display = down ? 'none' : 'block';
+        imageMuda.style.display = down ? 'block' : 'none';
+    } 
+    else{
+        punching.play();
+    }
 }
 
 // Counter
 function mud(a) {
-    toggleImage(true);
+   // if(isVidRunning == 1) {return;}
+      
+   toggleImage(true);
 
     if (++clicks % 6 === 0) {
+        isVidRunning = 1;
         imageNormal.style.display = 'none';
         imageMuda.style.display = 'none';
         punching.style.display = 'block';
-        
-        setTimeout(toggleVideo, 400);
-    }
+        toggleImage(true);
+        }
+    
 }
 
 toggleImage(false);
 
-root.addEventListener('mousedown', function(a) { if(a.button !== 0) return; mud(a); });
+root.addEventListener('mousedown', function(a) {if(a.button !== 0) return; mud(a); });
 root.addEventListener('mouseup', function(a) { if(a.button !== 0) return; toggleImage(false); });
