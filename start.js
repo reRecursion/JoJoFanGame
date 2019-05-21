@@ -40,6 +40,6 @@ toggleImage(false);
 root.addEventListener('mousedown', function(a) {if(a.button !== 0) return; ar(a); });
 root.addEventListener('mouseup', function(a) {if(a.button !== 0) return; ar(a); });
 root.addEventListener('touchstart', function(e) { ar(a); e.preventDefault(); });
-root.addEventListener('touchmove', function(e) { e.preventDefault(); });
+// root.addEventListener('touchmove', function(e) { e.preventDefault(); });
 root.addEventListener('touchend', function(e) { ar(a); });
 root.addEventListener('touchcancel', function(e) { ar(a); });
