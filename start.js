@@ -14,13 +14,10 @@ audio.play();
 
 
 function toggleImage(down) {
-    if(isVidRunning == 0){
-        imageNormal.style.display = down ? 'none' : 'block';
-        imageMuda.style.display = down ? 'block' : 'none';
-    } 
-    else{
-        punching.play();
-    }
+    if (isVidRunning)
+        return;
+    imageNormal.style.display = down ? 'none' : 'block';
+    imageMuda.style.display = down ? 'block' : 'none';
 }
 
 
@@ -36,7 +33,8 @@ function mud(a) {
         imageMuda.style.display = 'none';
         punching.style.display = 'block';
         toggleImage(true);
-        }
+        punching.play();
+    }
     
 }
 
