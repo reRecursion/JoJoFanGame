@@ -9,10 +9,9 @@ var overlay = document.getElementById("overlay")
 var clicks = 0;
 var isVidRunning = 0
 
+var audio = new Audio('sound.mp3');
+audio.play();
 
-function audio(){
-    
-}
 
 function toggleImage(down) {
     if(isVidRunning == 0){
@@ -24,11 +23,12 @@ function toggleImage(down) {
     }
 }
 
+
+
 // Counter
 function mud(a) {
-   // if(isVidRunning == 1) {return;}
-      
-   toggleImage(true);
+    audio.play();
+    toggleImage(true);
 
     if (++clicks % 6 === 0) {
         isVidRunning = 1;
